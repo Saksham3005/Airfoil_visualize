@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Airfoil Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        #controls {
+            margin: 20px;
+            flex: 1;
+        }
+        .slider-container {
+            margin: 10px;
+        }
+        #canvasContainer {
+            margin-top: 0px;
+            margin-left: 50px;
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h1>Interactive Airfoil Simulation</h1>
+        <div class="slider-container">
+            <label for="camber">Camber: </label>
+            <input type="range" id="camber" min="0" max="20" value="10">
+            <span id="camberValue">10</span>
+        </div>
+        <div class="slider-container">
+            <label for="thickness">Thickness: </label>
+            <input type="range" id="thickness" min="0" max="20" value="10">
+            <span id="thicknessValue">10</span>
+        </div>
+        <div class="slider-container">
+            <label for="windSpeed">Wind Speed (m/s): </label>
+            <input type="range" id="windSpeed" min="1" max="50" value="10">
+            <span id="windSpeedValue">10</span>
+        </div>
+        <div class="slider-container">
+            <label for="reynoldsNumber">Reynolds Number: </label>
+            <input type="range" id="reynoldsNumber" min="10000" max="1000000" value="50000">
+            <span id="reynoldsNumberValue">50000</span>
+        </div>
+        <div class="slider-container">
+            <label for="angleOfAttack">Angle of Attack (degrees): </label>
+            <input type="range" id="angleOfAttack" min="-10" max="20" value="0">
+            <span id="angleOfAttackValue">0</span>
+        </div>
+        <div class="slider-container">
+            <label for="naca-number">NACA 4-digit number: </label>
+            <input type="text" id="naca-number" value="2412">
+            <button id="plot-button">PLOT</button>
+        </div>
+        <div id="results">
+            <p>Lift Coefficient: <span id="liftCoefficient">1.00</span></p>
+            <p>Drag Coefficient: <span id="dragCoefficient">0.00</span></p>
+            <p>Efficiency: <span id="efficiency">Infinity</span></p>
+        </div>
+    </div>
+    <div id="canvasContainer">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <div id="plot"></div>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
